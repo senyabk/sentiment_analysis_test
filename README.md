@@ -5,4 +5,6 @@
 
 TF-IDF + LogisticRegression
 
+!Плохо работает на коротких отзывах
+
 (+ LinearSVC/RandomForest in .ipynb)
