@@ -4,3 +4,5 @@
 Веб-сервис для оценки комментариев (отзывов) к фильмам.
 
 TF-IDF + LogisticRegression
+
+(+ LinearSVC/RandomForest in .ipynb)
