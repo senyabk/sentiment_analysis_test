@@ -2,7 +2,7 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-from main.classification import text_preprocessor, text_lemmatizer
+#from main.classification import text_preprocessor, text_lemmatizer
 
 
 def main():

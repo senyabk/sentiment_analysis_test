@@ -1,25 +1,16 @@
 import re
+import os
 
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 
 import pickle
+from main.preproc import text_preprocessor, text_lemmatizer
 
-def text_preprocessor(txt):
-    txt = re.sub(re.compile('<.*?>'), '', txt)
-    txt = re.sub('[^A-Za-z0-9]+', ' ', txt)
-    return txt.lower()
-
-
-# Функция лемматизации
-def text_lemmatizer(txt):
-    lemmatizer = WordNetLemmatizer()
-    tokens = word_tokenize(txt)
-    return [lemmatizer.lemmatize(t) for t in tokens]
 
 def make_prediction(text):
-    vectorizer_filename = "./models/vectorizer.pkl"
-    model_filename = "./models/model.pkl"
+    vectorizer_filename = os.getcwd() + "/models/vectorizer.pkl"
+    model_filename = os.getcwd() + "/models/model.pkl"
 
     with open(vectorizer_filename, 'rb') as file:
         pickle_vectorizer = pickle.load(file)
