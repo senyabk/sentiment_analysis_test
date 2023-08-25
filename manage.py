@@ -2,23 +2,8 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-import re
+from main.classification import text_preprocessor, text_lemmatizer
 
-from nltk.tokenize import word_tokenize
-from nltk.stem import WordNetLemmatizer
-
-
-def text_preprocessor(txt):
-    txt = re.sub(re.compile('<.*?>'), '', txt)
-    txt = re.sub('[^A-Za-z0-9]+', ' ', txt)
-    return txt.lower()
-
-
-# Функция лемматизации
-def text_lemmatizer(txt):
-    lemmatizer = WordNetLemmatizer()
-    tokens = word_tokenize(txt)
-    return [lemmatizer.lemmatize(t) for t in tokens]
 
 def main():
     """Run administrative tasks."""

@@ -2,19 +2,75 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Главная страница</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            resize: vertical;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #004000;
+            border: none;
+            color: white;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        h2 {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Оставьте свой отзыв</h1>
-    <form method="post">
-        {% csrf_token %}
-        <label for="review_text">Ваш отзыв:</label><br>
-        <textarea id="review_text" name="review_text" rows="4" cols="50"></textarea><br>
-        <button type="submit">Отправить</button>
-    </form>
+    <div class="container">
+        <form method="post">
+            {% csrf_token %}
+            <label for="review_text">Review:</label>
+            <textarea id="review_text" name="review_text" rows="4" cols="50"></textarea>
+            <button type="submit">Check</button>
+        </form>
 
-    {% if rating %}
-        <h2>Ваш рейтинг: {{ rating }}</h2>
-    {% endif %}
+        {% if rating %}
+            <br /><label>Rating: {{ rating }}</label>
+            <br /><label>Label: {{ label }}</label>
+        {% endif %}
+    </div>
 </body>
 </html>
